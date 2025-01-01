@@ -1,0 +1,18 @@
+# Ignorowanie globalnych plików i folderów
+node_modules/
+.env
+dist/
+build/
+
+# Ignorowanie IDE i plików systemowych
+.vscode/
+.idea/
+.DS_Store
+
+# Backend specyficzne
+/backend/node_modules/
+/backend/.env
+
+# Frontend specyficzne
+/frontend/node_modules/
+/frontend/.env
