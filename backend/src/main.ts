@@ -7,6 +7,7 @@ async function bootstrap() {
   await createDatabaseIfNotExists();
   const app = await NestFactory.create(AppModule, { cors: true });
 
+
   const config = new DocumentBuilder()
     .setTitle('API Dokumentacja')
     .setDescription('Dokumentacja API dla aplikacji')
@@ -15,9 +16,11 @@ async function bootstrap() {
     .build();
 
     app.enableCors({
-      origin: 'http://localhost:3000',  // Adres, pod którym działa React Admin
-      exposedHeaders: ['Content-Range'], // Umożliwienie dostępu do Content-Range
+      origin: 'http://localhost:3000',
+      exposedHeaders: ['Content-Range'],
     });
+
+
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
@@ -25,5 +28,3 @@ async function bootstrap() {
   await app.listen(3001);
 }
 bootstrap();
-
-
